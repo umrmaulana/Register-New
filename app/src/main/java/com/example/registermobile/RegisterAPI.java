@@ -13,7 +13,7 @@ public interface RegisterAPI {
     @POST("get_masuk.php")
     Call<ResponseBody> login(
             @Field("email") String email,
-            @Field("password") String password
+            @Field("PASSWORD") String password
     );
 
     @FormUrlEncoded
@@ -21,7 +21,7 @@ public interface RegisterAPI {
     Call<ResponseBody> register(
             @Field("email") String email,
             @Field("nama") String nama,
-            @Field("password") String password
+            @Field("PASSWORD") String password
     );
 
     @GET("get_profile.php")

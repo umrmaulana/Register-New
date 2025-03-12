@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject json = new JSONObject(response.body().string());
 
                     if(json.getString("result").toString().equals("1")){
-                        if(json.getJSONObject("data").getString("status").equals("1")){
                             Toast.makeText(MainActivity.this,"Login Berhasil",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                             intent.putExtra("nama",json.getJSONObject("data").getString("nama"));
@@ -91,12 +90,6 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                             pd.dismiss();
-                        }
-                        else{
-                            pd.dismiss();
-                            AlertDialog.Builder msg = new AlertDialog.Builder(MainActivity.this);
-                            msg.setMessage("Status User Ini Tidak Aktif").setNegativeButton("retry",null).create().show();
-                        }
                     }else{
                         pd.dismiss();
                         AlertDialog.Builder msg = new AlertDialog.Builder(MainActivity.this);
